@@ -1,4 +1,5 @@
 [workstation]
+<<<<<<< HEAD
 192.168.56.108
 
 [dbserver]
@@ -18,3 +19,10 @@
 [ubuntu_centos]
 192.168.56.108 apache_package=apache2 php_package=libapache2-mod-php
 192.168.56.117 apache_package=httpd php_package=php
+=======
+192.168.56.102
+
+[webserver]
+192.168.56.101
+192.168.56.103
+>>>>>>> 53a64e8e62f06a1ddadb6b4244df15454448df8c

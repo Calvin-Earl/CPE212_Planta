@@ -1,4 +1,5 @@
 ---
+<<<<<<< HEAD
   - hosts: ubuntu_centos
     become: true
     tasks:
@@ -10,3 +11,20 @@
           - "{{ php_package }}"
         state: latest
         update_cache: yes
+=======
+- hosts: all
+  become: true
+  tasks:
+
+  - name: update repository index
+    apt:
+      update_cache: yes
+
+  - name: install apache2 package
+    apt:
+      name: apache2
+
+  - name: add PHP support for apache
+    apt:
+      name: libapache2-mod-php
+>>>>>>> 53a64e8e62f06a1ddadb6b4244df15454448df8c

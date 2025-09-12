@@ -1,0 +1,19 @@
+---
+  - hosts: ubuntu_centos
+    become: true
+    tasks:
+
+    - name: install apache for redhat
+      yum: 
+        name: httpd
+        state: present
+      when: ansible_distribution == "RedHat"
+
+    - name: install php for apache for redhat
+      yum:
+        name: 
+          - php
+          - php-cli
+          - php-common
+        state: present
+      when: ansible_distribution == "RedHat"
