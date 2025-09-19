@@ -1,14 +1,16 @@
 ---
-- hosts: workstation
+- hosts: all
   become: true
   tasks:
 
-    - name: update control node
-      ansible.builtin.package:
-        update_cache: yes
-      when: ansible_distribution == "CentOS"
-
-    - name: upgrade control node
-      ansible.builtin.package:
+    - name: update Ubuntu
+      apt:
         upgrade: yes
+        update_cache: yes
+      when: ansible_distribution == "Ubuntu"
+
+    - name: upgrade CentOS
+      dnf:
+        update_only: yes
+        update_cache: yes
       when: ansible_distribution == "CentOS"

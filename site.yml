@@ -4,12 +4,20 @@
   pre_tasks:
 
   - name: install updates (CentOS)
+<<<<<<< HEAD
+=======
+    tags: always
+>>>>>>> 343290696cdf1364f3e98ce7c9f43d2147cc5db3
     dnf:
       update_only: yes
       update_cache: yes
     when: ansible_distribution == "CentOS"
 
   - name: install updates (Ubuntu)
+<<<<<<< HEAD
+=======
+    tags: always
+>>>>>>> 343290696cdf1364f3e98ce7c9f43d2147cc5db3
     apt:
       upgrade: dist
       update_cache: yes
@@ -20,6 +28,10 @@
   tasks:
 
   - name: install apache and php for Ubuntu servers
+<<<<<<< HEAD
+=======
+    tags: apache, apache2, ubuntu
+>>>>>>> 343290696cdf1364f3e98ce7c9f43d2147cc5db3
     apt:
       name:
         - apache2
@@ -27,12 +39,18 @@
       state: latest
     when: ansible_distribution == "Ubuntu"
 
+<<<<<<< HEAD
   - name: install apache and php for CentOS servers
+=======
+  - name: intall apache and php for CentOS servers
+    tags: apache, centos, httpd
+>>>>>>> 343290696cdf1364f3e98ce7c9f43d2147cc5db3
     dnf:
       name:
         - httpd
         - php
       state: latest
+<<<<<<< HEAD
     when: ansible_distribution == "CentOS" 
 
   - name: copy default html file for site
@@ -43,24 +61,61 @@
       owner: root
       group: root
       mode: 0644
+=======
+    when: ansible_distribution == "CentOS"
+
+>>>>>>> 343290696cdf1364f3e98ce7c9f43d2147cc5db3
 - hosts: db_servers
   become: true
   tasks:
 
   - name: install mariadb package (CentOS)
+<<<<<<< HEAD
+=======
+    tags: centos, db, mariadb
+>>>>>>> 343290696cdf1364f3e98ce7c9f43d2147cc5db3
     yum:
       name: mariadb-server
       state: latest
     when: ansible_distribution == "CentOS"
 
+<<<<<<< HEAD
   - name: "mariadb- Restarting/Enabling"
+=======
+  - name: Mariadb Restarting/Enabling
+>>>>>>> 343290696cdf1364f3e98ce7c9f43d2147cc5db3
     service:
       name: mariadb
       state: restarted
       enabled: true
 
   - name: install mariadb package (Ubuntu)
+<<<<<<< HEAD
+=======
+    tags: db, mariadb, ubuntu
+>>>>>>> 343290696cdf1364f3e98ce7c9f43d2147cc5db3
     apt:
       name: mariadb-server
       state: latest
     when: ansible_distribution == "Ubuntu"
+<<<<<<< HEAD
+=======
+
+- hosts: file_servers
+  become: true
+  tasks:
+
+  - name: install samba package
+    tags: samba
+    package:
+      name: samba
+      state: latest
+
+  - name: start httpd (CentOS)
+    tags: apache, centos, httpd
+    service:
+      name: httpd
+      state: started
+      enabled: true
+    when: ansible_distribution == "CentOS"
+>>>>>>> 343290696cdf1364f3e98ce7c9f43d2147cc5db3
