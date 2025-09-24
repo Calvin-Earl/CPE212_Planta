@@ -1,0 +1,15 @@
+---
+  - name: install samba package
+    tags: samba
+    package:
+      name: samba
+      state: latest
+
+  - name: start httpd (CentOS)
+    tags: apache, centos, httpd
+    service:
+      name: httpd
+      state: started
+      enabled: true
+    when: ansible_distribution == "CentOS"
+

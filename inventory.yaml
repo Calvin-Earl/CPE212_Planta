@@ -1,4 +1,6 @@
-<<<<<<< HEAD
+[workstations]
+192.168.56.107
+
 [ubuntu]
 192.168.56.106
 192.168.56.107
@@ -18,16 +20,3 @@
 
 [file_servers]
 192.168.56.117
-=======
-#[web_servers]
-#192.168.56.106
-#192.168.56.107
-#192.168.56.108 ansible_user=bearl ansible_ssh_private_key_file=~/.ssh/id_rsa
-
-#[db_servers]
-#192.168.56.105
-#192.168.56.108
-
-[file_servers]
-192.168.56.108
->>>>>>> 343290696cdf1364f3e98ce7c9f43d2147cc5db3
